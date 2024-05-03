@@ -52,7 +52,7 @@ jobs:
       env:
         PLAN: "tofu\n${{ steps.plan.outputs.stdout }}"
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.GH_TOKEN }}
         script: |
             const output = `#### OpenTofu Format and Style 🖌\`${{ steps.fmt.outcome }}\`
             #### OpenTofu Initialization ⚙️\`${{ steps.init.outcome }}\`
