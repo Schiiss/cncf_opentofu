@@ -1,11 +1,11 @@
-name: 'Terraform'
+name: 'Tofu Plan'
  
 on:
   pull_request:
  
 jobs:
-  terraform:
-    name: 'Terraform'
+  tofu:
+    name: 'Tofu'
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
