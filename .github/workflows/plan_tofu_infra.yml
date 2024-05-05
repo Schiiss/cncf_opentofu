@@ -1,11 +1,11 @@
-name: 'Terraform'
+name: 'Tofu Plan'
  
 on:
   pull_request:
  
 jobs:
-  terraform:
-    name: 'Terraform'
+  tofu:
+    name: 'Tofu'
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
@@ -44,7 +44,7 @@ jobs:
     
     - name: OpenTofu Plan
       id: plan
-      run: tofu plan -no-color
+      run: tofu plan -no-color -var 'vm_password=${{ secrets.VM_PASSWORD }}'
       continue-on-error: true
     
     - uses: actions/github-script@v6
