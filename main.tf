@@ -9,11 +9,11 @@ terraform {
       version = "~>3.0"
     }
   }
-   backend "azurerm" {
-    resource_group_name  = "tofustate" 
-    storage_account_name = "tofustate001"                      
-    container_name       = "state"                      
-    key                  = "terraform.tfstate"        
+  backend "azurerm" {
+    resource_group_name  = "tofustate"
+    storage_account_name = "tofustate001"
+    container_name       = "state"
+    key                  = "terraform.tfstate"
   }
 }
 
@@ -29,7 +29,7 @@ resource "azurerm_resource_group" "rg" {
 
 resource "azurerm_network_interface" "example" {
   name                = "example-nic"
-  location            =  azurerm_resource_group.rg.location
+  location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
   ip_configuration {
@@ -42,7 +42,7 @@ resource "azurerm_network_interface" "example" {
 resource "azurerm_virtual_network" "example" {
   name                = "example-network"
   address_space       = ["10.0.0.0/16"]
-  location            =  azurerm_resource_group.rg.location
+  location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 }
 
@@ -66,8 +66,8 @@ resource "azurerm_linux_virtual_machine" "example" {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
-    disable_password_authentication = false
-    admin_password = var.vm_password
+  disable_password_authentication = false
+  admin_password                  = var.vm_password
   source_image_reference {
     publisher = "Canonical"
     offer     = "0001-com-ubuntu-server-jammy"
