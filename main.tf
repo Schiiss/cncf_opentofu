@@ -9,12 +9,6 @@ terraform {
       version = "~>3.0"
     }
   }
-  backend "azurerm" {
-    resource_group_name  = "tofustate"
-    storage_account_name = "tofustate001"
-    container_name       = "state"
-    key                  = "terraform.tfstate"
-  }
 }
 
 provider "azurerm" {
