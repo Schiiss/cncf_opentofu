@@ -1,16 +1,4 @@
 terraform {
-encryption {
-    key_provider "pbkdf2" "my_passphrase" {
-      passphrase = "xPyfKhYkhiHXG4TY" # Enter a passphrase here
-    }
-    method "aes_gcm" "my_method" {
-      keys = key_provider.pbkdf2.my_passphrase
-    }
-    state {
-      method = method.aes_gcm.my_method
-      fallback {} # Remove after the migration is complete.
-    }
-  }
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
