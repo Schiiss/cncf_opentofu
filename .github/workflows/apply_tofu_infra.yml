@@ -30,6 +30,8 @@ jobs:
           path: "./"
 
       - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: 1.7.0-alpha1
 
       - name: OpenTofu Init
         id: init
